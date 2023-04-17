@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const resturantSchema = new Schema(
     {
-      
+      //skjkenfk
     },
     {
       timestamps: true,
