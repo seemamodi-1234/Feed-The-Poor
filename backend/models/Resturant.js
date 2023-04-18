@@ -2,13 +2,51 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const resturantSchema = new Schema(
-    {
-      //skjkenfk
+  {
+    name: {
+      type: String
     },
-    {
-      timestamps: true,
+    username: {
+      type: String,
+      unique: true
+    },
+    area: {
+      type: String
+    },
+    district: {
+      type: String
+    },
+    pincode: {
+      type: Number
+    },
+    city: {
+      type: String
+    },
+    country: {
+      type: String
+    },
+    address: {
+      type: String
+    },
+    landmark: {
+      type: String
+    },
+    contactNumber: {
+      type: Number
+    },
+    photoGallery: [{
+      link: String,
+      date: Date,
+      comment: String
+    }],
+    location: {
+      type: String
     }
-  );
-  
-  const Resturant = mongoose.model("Resturant", resturantSchema);
-  module.exports = Resturant;
+  },
+  {
+    timestamps: true,
+  }
+);
+
+const Resturant = mongoose.model("Resturant", resturantSchema);
+module.exports = Resturant;
