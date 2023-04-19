@@ -10,6 +10,13 @@ const UserSchema = new Schema(
         type: String,
         unique: true
       },
+      email: {
+        type: String,
+        required: true,
+        trim: true,
+        unique: true,
+        lowercase: true
+      },
       type:{
         type:String,
         default:"User"
@@ -48,7 +55,12 @@ const UserSchema = new Schema(
       }],
       location: {
         type: String
-      }
+      },
+      hash_passwword: {
+        type: String,
+        required: true
+      },
+      profilePicture: {type: String}
     },
     {
       timestamps: true,

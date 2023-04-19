@@ -10,6 +10,13 @@ const resturantSchema = new Schema(
       type: String,
       unique: true
     },
+    email: {
+      type: String,
+      required: true,
+      trim: true,
+      unique: true,
+      lowercase: true
+    },
     area: {
       type: String
     },
@@ -41,7 +48,12 @@ const resturantSchema = new Schema(
     }],
     location: {
       type: String
-    }
+    },
+    hash_passwword: {
+      type: String,
+      required: true
+    },
+    profilePicture: {type: String}
   },
   {
     timestamps: true,
