@@ -9,7 +9,7 @@ const FoodSchema = new Schema(
         },
         resturantName: {
             type: String
-          },
+        },
         pickUpTime: {
             type: Date
         },

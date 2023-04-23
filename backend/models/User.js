@@ -3,7 +3,16 @@ const Schema = mongoose.Schema;
 
 const UserSchema = new Schema(
     {
-      name: {
+      firstName: {
+        type: String
+      },
+      middleName: {
+        type: String
+      },
+      lastName: {
+        type: String
+      },
+      fullName: {
         type: String
       },
       username: {
@@ -56,7 +65,7 @@ const UserSchema = new Schema(
       location: {
         type: String
       },
-      hash_passwword: {
+      hash_password: {
         type: String,
         required: true
       },
@@ -66,6 +75,13 @@ const UserSchema = new Schema(
       timestamps: true,
     }
   );
+
+  UserSchema.methods ={
+    authenticate:async function(password){
+        return await bcrypt.compare(password,this.hash_password);
+        if(err)console.log('hashing error');
+    }
+  }
   
   const User = mongoose.model("User", UserSchema);
   module.exports = User;

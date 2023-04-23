@@ -17,8 +17,10 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 const resturantRoutes =require("./routes/Resturant");
+const userRoutes =require("./routes/User");
 
 app.use("/api/resturant", resturantRoutes);
+app.use("/api/user",userRoutes);
 
 
 app.listen(process.env.PORT,()=>{

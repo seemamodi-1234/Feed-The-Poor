@@ -11,5 +11,7 @@ const storage = multer.diskStorage({
       cb(null, shortid.generate()+'-'+file.originalname)
     }
 })
+var upload = multer({storage:storage})
 
-exports.upload =multer({storage});
+module.exports = upload
+//exports.upload =multer({storage});
