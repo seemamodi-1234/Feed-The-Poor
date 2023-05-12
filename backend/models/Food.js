@@ -3,7 +3,9 @@ const Schema = mongoose.Schema;
 
 const FoodSchema = new Schema(
     {   
-        //primarykey->{date,resturantname}
+        key:{
+            type:String
+        },
         date:{
             type: Date,
         },

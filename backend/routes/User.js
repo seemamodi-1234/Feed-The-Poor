@@ -9,11 +9,11 @@ const {getUserByUsername} =require("../controllers/User/getUserByUsername")
 const {uploadProfilePicture} =require("../controllers/User/uploadProfilePicture")
 const {userSignOut} =require("../controllers/User/userSignOut")
 
-router.post('/createUser',createUser);//do test
-router.post('/updateUser',updateUser);//do test
-router.post('/deleteUser',deleteUser);//do test
+router.post('/createUser',createUser);
+router.post('/deleteUser',deleteUser);
 router.post('uploadProfilePicture',upload.single("file"),uploadProfilePicture);//do test
-router.get('/getUserByUsername',getUserByUsername);//do test
+router.put('/updateUser',updateUser);
+router.get('/getUserByUsername/:username',getUserByUsername);
 
 
 module.exports=router

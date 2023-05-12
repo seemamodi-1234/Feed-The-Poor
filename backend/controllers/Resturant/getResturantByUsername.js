@@ -2,7 +2,7 @@ const Resturant = require("../../models/Resturant")
 
 exports.getResturantByUsername = async (req, res) => {
     try {
-        const resturant = await Resturant.findOne({ username:req.body.username })
+        const resturant = await Resturant.findOne({ username:req.params.username })
         if (resturant) {
             return res.status(200).json({
                 status: true,
