@@ -1,3 +1,24 @@
 .rightbar{
     flex: 3.5;
 }
+.rightbarWrapper{
+    padding: 20px 20px 0 0;
+}
+.qouteContainer{
+    display: flex;
+    align-items: center;
+}
+.qouteImg{
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+.qouteText{
+    font-weight: 300;
+    font-size: 15px;
+}
+.rightbarAd{
+    width: 100%;
+    border-radius: 10px;
+    margin: 30px 0;
+}
