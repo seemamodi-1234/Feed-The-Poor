@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const moment = require('moment');
+//const moment = require('moment');
 
 const FoodSchema = new Schema(
     {   
@@ -9,7 +9,7 @@ const FoodSchema = new Schema(
         },
         date:{
             type: Date,
-            default: moment.tz(new Date(), "Asia/Kolkata")
+            //default: moment.tz(new Date(), "Asia/Kolkata")
         },
         resturantName: {
             type: String

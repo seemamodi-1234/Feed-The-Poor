@@ -2,7 +2,7 @@ const Post =require("../../models/Food")
 
 exports.createPost = async(req,res) =>{
     try {
-        const post= await User.findOne({Key:req.body.Key})
+        const post= await Post.findOne({key:req.body.key})
 
         if(post){
             throw new Error("Post already Exists")

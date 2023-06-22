@@ -18,9 +18,11 @@ app.use(bodyParser.json());
 
 const resturantRoutes =require("./routes/Resturant");
 const userRoutes =require("./routes/User");
+const postRoutes =require("./routes/Food");
 
 app.use("/api/resturant", resturantRoutes);
 app.use("/api/user",userRoutes);
+app.use("/api/post",postRoutes);
 
 
 app.listen(process.env.PORT,()=>{
