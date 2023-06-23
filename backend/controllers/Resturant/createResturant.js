@@ -10,7 +10,7 @@ exports.createResturant = async (req, res) => {
         }
         else{
             const newResturant = new Resturant(req.body);
-
+            console.log(req.body)
             let fullName = req.body.firstName
             if(req.body.middleName) fullName =fullName + " " + req.body.middleName;
             fullName=fullName + " " + req.body.lastName
@@ -20,6 +20,7 @@ exports.createResturant = async (req, res) => {
             const hash_passwword = await bcrypt.hash(req.body.password,10);
 
             newResturant.hash_password = hash_passwword
+            console.log(newResturant)
 
             let doc = await newResturant.save();
 

@@ -2,11 +2,12 @@ import "./share.css"
 import {PermMedia , Label,Room,EmojiEmotions} from "@material-ui/icons"
 
 export default function Share() {
+  const PF = process.env.REACT_APP_PUBLIC_FOLDER
   return (
     <div className="share">
         <div className="shareWrapper">
             <div className="shareTop">
-                <img className="shareProfileImg" src="/assets/person/image1" alt="" />
+                <img className="shareProfileImg" src={`${PF}person/image1`} alt="" />
                 <input placeholder="What you wanna share next?" className="shareInput"/>
             </div>
             <hr className="shareHr"/>

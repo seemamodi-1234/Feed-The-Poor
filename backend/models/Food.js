@@ -7,9 +7,15 @@ const FoodSchema = new Schema(
         key:{
             type:String
         },
+        foodType:{
+            type:String
+        },
         date:{
-            type: Date,
+            type: String,
             //default: moment.tz(new Date(), "Asia/Kolkata")
+        },
+        resturantUsername:{
+            type: String,
         },
         resturantName: {
             type: String
@@ -22,6 +28,12 @@ const FoodSchema = new Schema(
             date: Date,
             comment: String
         }],
+        like:{
+            type:Number
+        },
+        comment:{
+            type:Number
+        }
     },
     {
       timestamps: true,

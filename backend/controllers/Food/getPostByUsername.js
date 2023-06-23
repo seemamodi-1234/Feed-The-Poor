@@ -1,17 +1,20 @@
-const Resturant = require("../../models/Resturant")
+const Post =require("../../models/Food")
 
-exports.getResturantByUsername = async (req, res) => {
+exports.getPostByUsername = async (req, res) => {
     try {
-        const resturant = await Resturant.findOne({ username:req.query.username })
-        if (resturant) {
+
+        list = await Post.find({resturantUsername:req.params.username})
+
+        if (list.length > 0) {
             return res.status(200).json({
                 status: true,
-                Resturant: resturant
+                Posts: list,
             })
         } else {
             return res.status(200).json({
                 status: false,
-                message:"Resturant not Found"
+                message: 'No Available Posts',
+               
             })
         }
     }

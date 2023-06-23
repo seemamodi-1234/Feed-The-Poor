@@ -15,7 +15,7 @@ router.post('/updateResturant',updateResturant);
 router.post('/deleteResturant',deleteResturant);
 router.put('uploadProfilePicture',upload.single("file"),uploadProfilePicture);//do test
 router.get('/getListOfResturants',getListOfResturants);
-router.get('/getResturantByUsername/:username',getResturantByUsername);
+router.get('/getResturantByUsername',getResturantByUsername);
 
 
 module.exports=router
