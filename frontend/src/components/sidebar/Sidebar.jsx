@@ -10,8 +10,28 @@ import {
   Event,
   School,} from "@material-ui/icons"
 import LogoutIcon from '@mui/icons-material/Logout';
+import { useNavigate } from 'react-router-dom';
+
 
 export default function Sidebar() {
+  const navigate = useNavigate();
+  const SignOut = () => {
+    localStorage.clear();
+    window.location.href = '/register';
+  };
+  // const SignOut =(e)=>{
+  //   e.preventDefault()
+  //   try{
+  //     console.log('Sign out clicked');
+  //     localStorage.clear();
+  //     console.log('Sign out clicked');
+  //     navigate('/register');
+  //   }
+  //   catch(err){
+  //     console.log(err)
+  //   }
+  // }
+  
   return (
     <div className='sidebar'> 
         <div className="sidebarWrapper">
@@ -52,8 +72,8 @@ export default function Sidebar() {
             <School className="sidebarIcon" />
             <span className="sidebarListItemText">Courses</span>
           </li>
-            <li className="sidebarListItem">
-              <LogoutIcon className='sidebarIcon'/>
+            <li className="sidebarListItem" onClick={SignOut}>
+              <LogoutIcon className='sidebarIcon' />
               <span className="sidebarListItemText">LogOut</span>
             </li>
           </ul>

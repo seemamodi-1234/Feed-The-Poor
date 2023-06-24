@@ -5,6 +5,7 @@ import { CircularProgress } from "@material-ui/core";
 import { useRef, useContext } from "react"
 import { useNavigate } from 'react-router-dom';
 import axios from "axios";
+import { Link } from "react-router-dom"
 
 export default function Register() {
     const email = useRef();
@@ -67,7 +68,10 @@ export default function Register() {
                             <option >Resturant</option>
                         </select>
                         <button className="loginButton" type="submit">Sign Up</button>
-                        <button className="loginRegisterButton">Log into Account</button>
+                        <Link to="/login">
+                            <button className="loginRegisterButton">Log into Account</button>
+                        </Link>
+                        
                     </form>
                 </div>
             </div>
