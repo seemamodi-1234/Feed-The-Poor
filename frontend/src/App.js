@@ -6,6 +6,8 @@ import Profile from "./pages/profile/Profile";
 import {BrowserRouter as Router,Route,Routes,Navigate} from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "./context/AuthContext";
+import UserInfo from "./pages/userInfo/UserInfo";
+
 
 
 function App() {
@@ -24,6 +26,10 @@ function App() {
         <Route 
         exact path="/register" 
         element={user ? <Navigate to ="/"/>:<Register />}
+        />
+        <Route 
+        exact path="/information" 
+        element={<UserInfo/>}
         />
         <Route 
         exact path="/profile/:username" 

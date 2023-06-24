@@ -1,0 +1,38 @@
+.info{
+    display: flex;
+}
+.infoRight{
+    flex: 9;
+    display: block;
+}
+.infoInput{
+    height: 50px;
+    border-radius: 10px;
+    border: 1px solid gray;
+    font-size: 10px;
+    padding-left: 100px;
+    width: 400px;
+    
+}
+.row {
+    padding-left: 100px;
+    display: flex;
+    margin-bottom: 10px;
+  }
+  
+  .row .infoInput {
+    margin-top: 15px;
+    margin-right: 10px;
+  }
+
+  .infoButton{
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    background-color: #1775ee;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-left: 800px;
+}

@@ -28,16 +28,16 @@ export default function Register() {
             };
             if (userType.current.value === "Resturant") {
                 try {
-                    await axios.post("/resturant/createResturant", user);
-                    navigate('/login');
+                    const res = await axios.post("/resturant/createResturant", user);
+                    navigate(`/login`);
                 } catch (err) {
                     console.log(err);
                 }
             }
             else if(userType.current.value === "User"){
                 try {
-                    await axios.post("/user/createUser", user);
-                    navigate('/login');
+                    const res =await axios.post("/user/createUser", user);
+                    navigate(`/login`);
                 } catch (err) {
                     console.log(err);
                 }
@@ -64,7 +64,7 @@ export default function Register() {
                         />
                         <select className="loginSelect" required ref={userType} >
                             <option >Select User Type</option>
-                            <option >Normal User</option>
+                            <option >User</option>
                             <option >Resturant</option>
                         </select>
                         <button className="loginButton" type="submit">Sign Up</button>

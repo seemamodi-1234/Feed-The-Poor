@@ -34,7 +34,7 @@ export default function Profile() {
                         </div>
                         <div className="profileInfo">
                             <h4 className="profileInfoName">{user.username}</h4>
-                            <span className="profileInfoDesc">{user.resturantName}</span>
+                            <span className="profileInfoDesc">{user.fullName}</span>
                         </div>
                     </div>
                     <div className="profileRightBottom">

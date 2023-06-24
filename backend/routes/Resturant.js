@@ -8,7 +8,6 @@ const {updateResturant} = require("../controllers/Resturant/updateResturant");
 const {deleteResturant} = require("../controllers/Resturant/deleteResturant");
 const {getResturantByUsername} = require("../controllers/Resturant/getResturantByUsername");
 const {getListOfResturants} = require("../controllers/Resturant/getListOfResturants");
-const {resturantSignOut} = require("../controllers/Resturant/resturantSignOut");
 const {uploadProfilePicture} = require("../controllers/Resturant/uploadProfilePicture");
 const {resturantSignIn} = require("../controllers/Resturant/resturantSignIn");
 

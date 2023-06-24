@@ -3,7 +3,6 @@ const Resturant = require("../../models/Resturant")
 exports.updateResturant = async (req, res) => {
     try {
         const resturant= await Resturant.findOne({username:req.body.username})
-        
         if(resturant){
             const updateresturant = await Resturant.findOneAndUpdate({username:req.body.username},req.body.update,{new:true})
 

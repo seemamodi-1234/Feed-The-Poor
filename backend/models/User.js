@@ -26,10 +26,6 @@ const UserSchema = new Schema(
         unique: true,
         lowercase: true
       },
-      type:{
-        type:String,
-        default:"User"
-      },
       certification:{
         type: String,
       },

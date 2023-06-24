@@ -8,8 +8,10 @@ import {
   HelpOutline,
   WorkOutline,
   Event,
-  School,} from "@material-ui/icons"
+  School,
+} from "@material-ui/icons"
 import LogoutIcon from '@mui/icons-material/Logout';
+import AddIcon from '@mui/icons-material/Add';
 import { useNavigate } from 'react-router-dom';
 
 
@@ -31,20 +33,20 @@ export default function Sidebar() {
   //     console.log(err)
   //   }
   // }
-  
+
   return (
-    <div className='sidebar'> 
-        <div className="sidebarWrapper">
-          <ul className="sidebarList">
-            <li className="sidebarListItem">
-              <RssFeed className='sidebarIcon'/>
-              <span className="sidebarListItemText">Feed</span>
-            </li>
-            <li className="sidebarListItem">
-              <Chat className='sidebarIcon'/>
-              <span className="sidebarListItemText">Chats</span>
-            </li>
-            <li className="sidebarListItem">
+    <div className='sidebar'>
+      <div className="sidebarWrapper">
+        <ul className="sidebarList">
+          <li className="sidebarListItem">
+            <RssFeed className='sidebarIcon' />
+            <span className="sidebarListItemText">Feed</span>
+          </li>
+          <li className="sidebarListItem">
+            <Chat className='sidebarIcon' />
+            <span className="sidebarListItemText">Chats</span>
+          </li>
+          <li className="sidebarListItem">
             <PlayCircleFilledOutlined className="sidebarIcon" />
             <span className="sidebarListItemText">Videos</span>
           </li>
@@ -72,15 +74,20 @@ export default function Sidebar() {
             <School className="sidebarIcon" />
             <span className="sidebarListItemText">Courses</span>
           </li>
-            <li className="sidebarListItem" onClick={SignOut}>
-              <LogoutIcon className='sidebarIcon' />
-              <span className="sidebarListItemText">LogOut</span>
-            </li>
-          </ul>
-          <button className='sidebarButton'>Show More</button>
-          <hr className='sidebarHr'/>
-          
-        </div>
+          <li className="sidebarListItem" onClick={()=>navigate('/information')}>
+            <AddIcon className="sidebarIcon" />
+            <span className="sidebarListItemText">UpdateInfo</span>
+          </li>
+          <li className="sidebarListItem" onClick={SignOut}>
+            <LogoutIcon className='sidebarIcon' />
+            <span className="sidebarListItemText">LogOut</span>
+          </li>
+        </ul>
+        
+        <button className='sidebarButton'>Show More</button>
+        <hr className='sidebarHr' />
+
+      </div>
     </div>
   )
 }

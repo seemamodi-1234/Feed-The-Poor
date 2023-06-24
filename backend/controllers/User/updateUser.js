@@ -5,6 +5,7 @@ exports.updateUser = async (req, res) => {
         const user= await User.findOne({username:req.body.username})
         
         if(user){
+            //console.log(req.body)
             const updateuser = await User.findOneAndUpdate({username:req.body.username},req.body.update,{new:true})
 
             if(updateuser){
