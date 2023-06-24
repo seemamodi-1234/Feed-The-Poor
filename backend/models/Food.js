@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-//const moment = require('moment');
+const moment = require('moment-timezone');
 
 const FoodSchema = new Schema(
     {   
@@ -8,11 +8,12 @@ const FoodSchema = new Schema(
             type:String
         },
         foodType:{
-            type:String
+            type:String,
+            enum:["Veg" , "Non-veg"]
         },
         date:{
             type: String,
-            //default: moment.tz(new Date(), "Asia/Kolkata")
+            default: moment.tz(new Date(), "Asia/Kolkata")
         },
         resturantUsername:{
             type: String,
@@ -28,8 +29,9 @@ const FoodSchema = new Schema(
             date: Date,
             comment: String
         }],
-        like:{
-            type:Number
+        likes: {
+            type: Array,
+            default: [],
         },
         comment:{
             type:Number

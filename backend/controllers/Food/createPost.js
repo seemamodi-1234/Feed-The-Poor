@@ -11,6 +11,7 @@ exports.createPost = async(req,res) =>{
             const newPost = new Post(req.body);
 
             let key = req.body.username + "-" +new Date().getDate() + "-" +req.body.mealtime;
+            newPost.resturantUsername=username
 
             newPost.key=key
 

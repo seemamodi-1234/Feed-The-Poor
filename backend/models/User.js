@@ -69,19 +69,16 @@ const UserSchema = new Schema(
         type: String,
         required: true
       },
+      userType:{
+        type:String,
+        default:"User"
+      },
       profilePicture: {type: String}
     },
     {
       timestamps: true,
     }
   );
-
-  UserSchema.methods ={
-    authenticate:async function(password){
-        return await bcrypt.compare(password,this.hash_password);
-        if(err)console.log('hashing error');
-    }
-  }
   
   const User = mongoose.model("User", UserSchema);
   module.exports = User;

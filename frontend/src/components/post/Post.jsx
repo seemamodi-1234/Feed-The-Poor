@@ -1,18 +1,27 @@
 import "./post.css"
 import { MoreVert } from "@material-ui/icons"
-import { useState , useEffect } from "react"
+import { useState, useEffect,useContext } from "react"
 import axios from "axios"
 import { format } from "timeago.js"
 import { Link } from "react-router-dom"
+import { AuthContext } from "../../context/AuthContext";
 
-export default function Post({post}) {
-    const [user,setUser] = useState([]);
-    const [like,setLike] = useState(post.like)
-    const [isLiked,setIsLiked] = useState(false)
+export default function Post({ post }) {
+    const [uuser, setUser] = useState([]);
+    const [like, setLike] = useState(post.likes.length)
+    const [isLiked, setIsLiked] = useState(false)
     const PF = process.env.REACT_APP_PUBLIC_FOLDER
+    const { user:currentUser } = useContext(AuthContext);
 
-    const likeHandler =()=>{
-        setLike(isLiked ? like-1 : like+1)
+    useEffect(() => {
+        setIsLiked(post.likes.includes(currentUser.username));
+    }, [currentUser.username, post.likes]);
+
+    const likeHandler = () => {
+        try {
+            axios.put("/post/" + post.key + "/likePost", { username: currentUser.username });
+        } catch (err) { }
+        setLike(isLiked ? like - 1 : like + 1)
         setIsLiked(!isLiked)
     }
 
@@ -23,19 +32,19 @@ export default function Post({post}) {
             //console.log(res.data.Resturant)
         };
         fetchUser();
-    },[post.resturantUsername]);
+    }, [post.resturantUsername]);
 
     return (
         <div className="post">
             <div className="postWrapper">
                 <div className="postTop">
                     <div className="postTopLeft">
-                        <Link to={`profile/${user.username}`}>
+                        <Link to={`profile/${uuser && uuser.username}`}>
                             <img className="postProfileImg"
-                            src={`${PF}rightbarimg.jpeg`}
-                            alt="" />
+                                src={`${PF}rightbarimg.jpeg`}
+                                alt="" />
                         </Link>
-                        <span className="postUsername">{user.resturantName}</span>
+                        <span className="postUsername">{uuser && uuser.resturantName}</span>
                         <span className="postDate">{format(post.createdAt)}</span>
                     </div>
                     <div className="postTopRight">
@@ -44,9 +53,9 @@ export default function Post({post}) {
                 </div>
                 <div className="postCenter">
                     <span className="postText">{post?.desc}</span>
-                    <img className="postImg" 
-                    src={`${PF}rightbarimg.jpeg`}
-                    alt="" />
+                    <img className="postImg"
+                        src={`${PF}rightbarimg.jpeg`}
+                        alt="" />
                 </div>
                 <div className="postBottom">
                     <div className="postBottomLeft">

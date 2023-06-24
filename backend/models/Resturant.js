@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const bcrypt=require('bcrypt');
 const Schema = mongoose.Schema;
 
 const resturantSchema = new Schema(
@@ -15,6 +14,10 @@ const resturantSchema = new Schema(
     },
     fullName: {
       type: String
+    },
+    userType:{
+      type:String,
+      default:"Resturant"
     },
     resturantName:{
       type:String
@@ -76,13 +79,6 @@ const resturantSchema = new Schema(
     timestamps: true,
   }
 );
-
-resturantSchema.methods ={
-  authenticate:async function(password){
-      return await bcrypt.compare(password,this.hash_password);
-      if(err)console.log('hashing error');
-  }
-}
 
 const Resturant = mongoose.model("Resturant", resturantSchema);
 module.exports = Resturant;

@@ -45,6 +45,10 @@
 .loginInput:focus{
     outline: none;
 }
+.loginSelect{
+    width: 45%;
+    border-radius: 10px;
+}
 .loginButton{
     height: 50px;
     border-radius: 10px;
@@ -55,6 +59,12 @@
     font-weight: 500;
     cursor: pointer;
 }
+.loginButton:focus{
+    outline: none;
+}
+.loginButton:disabled{
+    cursor: not-allowed;
+  }
 .loginForgot{
     text-align: center;
     color: #1775ee;

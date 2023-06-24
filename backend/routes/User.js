@@ -8,7 +8,10 @@ const {deleteUser} = require("../controllers/User/deleteUser")
 const {getUserByUsername} =require("../controllers/User/getUserByUsername")
 const {uploadProfilePicture} =require("../controllers/User/uploadProfilePicture")
 const {userSignOut} =require("../controllers/User/userSignOut")
+const {userSignIn} = require("../controllers/User/userSignIn");
 
+router.post('/userSignIn',userSignIn);
+router.post('/userSignOut',userSignOut);
 router.post('/createUser',createUser);
 router.post('/deleteUser',deleteUser);
 router.post('uploadProfilePicture',upload.single("file"),uploadProfilePicture);//do test

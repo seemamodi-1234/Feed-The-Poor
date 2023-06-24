@@ -16,10 +16,10 @@ exports.createResturant = async (req, res) => {
             fullName=fullName + " " + req.body.lastName
 
             newResturant.fullName =fullName;
+            const salt = await bcrypt.genSalt(10);
+            const hashedPassword = await bcrypt.hash(req.body.password, salt);
 
-            const hash_passwword = await bcrypt.hash(req.body.password,10);
-
-            newResturant.hash_password = hash_passwword
+            newResturant.hash_password = hashedPassword
             console.log(newResturant)
 
             let doc = await newResturant.save();

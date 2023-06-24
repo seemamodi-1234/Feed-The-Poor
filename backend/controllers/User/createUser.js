@@ -17,9 +17,10 @@ exports.createUser = async(req,res) =>{
 
             newUser.fullName =fullName;
 
-            const hash_passwword = await bcrypt.hash(req.body.password,10);
+            const salt = await bcrypt.genSalt(10);
+            const hashedPassword = await bcrypt.hash(req.body.password, salt);
 
-            newUser.hash_password = hash_passwword
+            newUser.hash_password = hashedPassword
 
             let doc = await newUser.save();
 
