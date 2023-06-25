@@ -63,3 +63,10 @@
     border-bottom: 1px dashed gray;
     font-size: 15px;
 }
+.postTopRightInfo{
+    display: block;
+    margin-top: 10px;
+}
+.postTopRightInfoItem{
+    margin-right: 10px;
+}

@@ -32,7 +32,7 @@ export default function Feed({username}) {
     
   
     fetchPosts();
-    //console.log(posts);
+    console.log(posts);
   },[username]);
 
   return (

@@ -39,22 +39,33 @@ export default function Post({ post }) {
             <div className="postWrapper">
                 <div className="postTop">
                     <div className="postTopLeft">
-                        <Link to={`profile/${uuser && uuser.username}`}>
+                        <Link to={`/profile/${post.resturantUsername}`}>
                             <img className="postProfileImg"
                                 src={`${PF}rightbarimg.jpeg`}
                                 alt="" />
                         </Link>
-                        <span className="postUsername">{uuser && uuser.resturantName}</span>
+                        <span className="postUsername">{post.resturantUsername}</span>
                         <span className="postDate">{format(post.createdAt)}</span>
                     </div>
                     <div className="postTopRight">
                         <MoreVert />
                     </div>
+                    
                 </div>
+                
                 <div className="postCenter">
+                <div className="postTopRightInfo">
+                        <span className="postTopRightInfoItem">Food Type: {post.foodType}</span>
+                        <span className="postTopRightInfoItem">PickUpTime: {post.pickUpTime}</span>
+                    </div>
                     <span className="postText">{post?.desc}</span>
                     <img className="postImg"
-                        src={`${PF}rightbarimg.jpeg`}
+                        src={
+                            post.img
+                              ? PF + post.img
+                              : PF + "rightbarimg.jpeg"
+                          }
+                        //src={`${PF}rightbarimg.jpeg`}
                         alt="" />
                 </div>
                 <div className="postBottom">

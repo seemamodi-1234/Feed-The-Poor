@@ -3,7 +3,7 @@ import Topbar from "../../components/topbar/Topbar"
 import Sidebar from "../../components/sidebar/Sidebar"
 import Feed from "../../components/feed/Feed"
 import Rightbar from "../../components/rightbar/Rightbar"
-import { useState , useEffect } from "react"
+import { useState , useEffect,useContext } from "react"
 import axios from "axios"
 import { useParams } from "react-router";
 import { AuthContext } from "../../context/AuthContext";
@@ -15,6 +15,7 @@ export default function Profile() {
 
     useEffect(() => {
         const fetchUser = async () => {
+            
             const res = await axios.get(`/resturant/getResturantByUsername?username=${username}`)
             setUser(res.data.Resturant)
             //console.log(res.data.Resturant)
