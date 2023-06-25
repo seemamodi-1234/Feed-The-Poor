@@ -22,7 +22,7 @@ const FoodSchema = new Schema(
             type: String
         },
         pickUpTime: {
-            type: Date
+            type: String
         },
         photoGallery: [{
             link: String,
@@ -35,6 +35,12 @@ const FoodSchema = new Schema(
         },
         comment:{
             type:Number
+        },
+        desc:{
+            type:String
+        },
+        img:{
+            type:String
         }
     },
     {

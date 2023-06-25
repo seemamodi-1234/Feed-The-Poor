@@ -3,6 +3,7 @@ const Post =require("../../models/Food")
 exports.createPost = async(req,res) =>{
     try {
         const post= await Post.findOne({key:req.body.key})
+        //console.log(req.body.key)
 
         if(post){
             throw new Error("Post already Exists")
@@ -10,13 +11,13 @@ exports.createPost = async(req,res) =>{
         else{
             const newPost = new Post(req.body);
 
-            let key = req.body.username + "-" +new Date().getDate() + "-" +req.body.mealtime;
-            newPost.resturantUsername=username
+            //let key = req.body.username + "-" +new Date().getDate() + "-" +req.body.mealTime;
+            newPost.resturantUsername=req.body.username
 
-            newPost.key=key
+            newPost.key=req.body.key
 
             let doc = await newPost.save();
-
+            console.log(doc)
             if (!doc) {
                 throw new Error("Unable to create Post")
             }
